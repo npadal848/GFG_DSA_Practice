@@ -7,16 +7,19 @@ public class SubSetOfString {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String str = sc.next();
-		
-		printSubSet(str, 0, str.length());
+
+		printSubSet(str, "", 0);
+		sc.close();
 	}
-	
-	static void printSubSet(String str, int start, int end) {
-		for(int i=0; i<end; i++) {
-			for(int j=0; j<end; j++) {
-				System.out.print(str.charAt(j));
-			}
-			System.out.println();
+
+	static void printSubSet(String s, String curr, int index) {
+
+		if (index == s.length()) {
+			System.out.println(curr);
+			return;
 		}
+		
+		printSubSet(s, curr, index+1);
+		printSubSet(s, curr + s.charAt(index), index+1);
 	}
 }

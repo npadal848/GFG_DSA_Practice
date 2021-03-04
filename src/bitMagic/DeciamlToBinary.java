@@ -12,7 +12,7 @@ public class DeciamlToBinary {
 	}
 	
 	static String getBinaryRep(int N){
-        int[] binary=new int[64];
+        int[] binary=new int[32];
         int i=binary.length-1;
         while(N>0){
             binary[i]=N%2;
