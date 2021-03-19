@@ -37,7 +37,7 @@ public class LeaderInArray {
 	}
 
 	/*
-	 * Method-1 TC - O(n^2), SC - Theta(1)
+	 * Method-1 TC - O(n), SC - Theta(1)
 	 */
 	static void findLeader2(int[] arr, int n) {
 		int currLeader = arr[n];
