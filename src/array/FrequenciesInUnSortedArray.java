@@ -32,8 +32,6 @@ public class FrequenciesInUnSortedArray {
 			}
 		}
 		List<Integer> list = new ArrayList<>(frequencyMap.keySet());
-		list.forEach(num -> {
-			System.out.println(num + " : " + frequencyMap.get(num));
-		});
+		list.forEach(num -> System.out.println(num + " : " + frequencyMap.get(num)));
 	}
 }
