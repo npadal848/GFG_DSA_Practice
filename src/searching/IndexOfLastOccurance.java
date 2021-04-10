@@ -1,17 +1,11 @@
 package searching;
 
-import java.util.Scanner;
-
 public class IndexOfLastOccurance {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int k = sc.nextInt();
-		int[] arr = new int[n];
-		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextInt();
-		}
+		int[] arr = { 1, 2, 3, 3, 3, 4 };
+		int n = arr.length;
+		int k = 3;
 
 		System.out.println(search(arr, 0, n - 1, k));
 	}

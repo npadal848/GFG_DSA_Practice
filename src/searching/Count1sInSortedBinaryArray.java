@@ -1,17 +1,10 @@
 package searching;
 
-import java.util.Scanner;
-
 public class Count1sInSortedBinaryArray {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int[] arr = new int[n];
-		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextInt();
-		}
-
+		int[] arr = { 0, 0, 0, 1, 1, 1, 1, 1 };
+		int n = arr.length;
 		System.out.println(count(arr, 0, n - 1, n, 1));
 	}
 
@@ -20,7 +13,7 @@ public class Count1sInSortedBinaryArray {
 			return n;
 		if (arr[n - 1] == 0)
 			return 0;
-		
+
 		int startIndex = getIndexOfFirstOccurance(arr, start, end, n, k);
 		if (startIndex == -1)
 			return 0;
