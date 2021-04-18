@@ -1,19 +1,24 @@
 package sorting;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class MergeSort3 {
 
 	public static void main(String[] args) {
-		int[] arr = { 10, 5, 30, 15, 7 };
-		int n = arr.length;
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
 		mergeSort(arr, 0, n - 1);
 		Arrays.stream(arr).forEach(num -> System.out.print(num + " "));
 	}
 
 	static void mergeSort(int[] arr, int low, int high) {
 		if (low < high) {
-			int mid = (low + high) / 2;
+			int mid = low + (high - low) / 2;
 			mergeSort(arr, low, mid);
 			mergeSort(arr, mid + 1, high);
 			merge(arr, low, mid, high);
@@ -33,10 +38,10 @@ public class MergeSort3 {
 		}
 
 		for (int j = 0; j < n2; j++) {
-			right[j] = arr[n1 + j];
+			right[j] = arr[mid + 1 + j];
 		}
 
-		int index = 0;
+		int index = low;
 		int i = 0;
 		int j = 0;
 

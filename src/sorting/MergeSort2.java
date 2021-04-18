@@ -24,10 +24,10 @@ public class MergeSort2 {
 		}
 
 		for (int j = 0; j < n2; j++) {
-			right[j] = arr[n1 + j];
+			right[j] = arr[mid+1 + j];
 		}
 
-		int index = 0;
+		int index = start;
 		int i = 0;
 		int j = 0;
 
