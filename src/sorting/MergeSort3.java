@@ -14,6 +14,7 @@ public class MergeSort3 {
 		}
 		mergeSort(arr, 0, n - 1);
 		Arrays.stream(arr).forEach(num -> System.out.print(num + " "));
+		sc.close();
 	}
 
 	static void mergeSort(int[] arr, int low, int high) {
