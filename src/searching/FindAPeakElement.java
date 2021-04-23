@@ -36,9 +36,15 @@ public class FindAPeakElement {
 		if (n == 1)
 			return arr[0];
 		int mid = (start + end) / 2;
+//		This logic also works fine
+//		if ((mid == 0 && arr[mid] >= arr[mid + 1]) || (mid == n - 1 && arr[mid] >= arr[mid - 1])
+//				|| ((mid != 0 && arr[mid] >= arr[mid - 1]) && (mid != n - 1 && arr[mid] >= arr[mid + 1]))) {
+//			return arr[mid];
+//		}
 
-		if ((mid == 0 && arr[mid] >= arr[mid + 1]) || (mid == n - 1 && arr[mid] >= arr[mid - 1])
-				|| ((mid != 0 && arr[mid] >= arr[mid - 1]) && (mid != n - 1 && arr[mid] >= arr[mid + 1]))) {
+//		This is optimized logic of above
+		if ((mid == 0 || arr[mid] >= arr[mid - 1]) 
+				&& (mid == n - 1 || arr[mid] >= arr[mid + 1])) {
 			return arr[mid];
 		}
 		if (mid > 0 && arr[mid] <= arr[mid - 1])

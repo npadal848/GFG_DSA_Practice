@@ -17,7 +17,7 @@ public class LomutoPartition {
 		int i = l - 1;
 		int pivot = arr[h];
 
-		for (int j = 0; j < h; j++) {
+		for (int j = l; j < h; j++) {
 			if (arr[j] < pivot) {
 				i++;
 				int temp = arr[i];

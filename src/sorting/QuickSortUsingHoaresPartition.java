@@ -3,7 +3,7 @@ package sorting;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class QuickSortUsingLomutoPartition {
+public class QuickSortUsingHoaresPartition {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -22,27 +22,29 @@ public class QuickSortUsingLomutoPartition {
 	static void sort(int[] arr, int l, int h) {
 		if (l < h) {
 			int p = partition(arr, l, h);
-			sort(arr, l, p-1);
+			sort(arr, l, p);
 			sort(arr, p + 1, h);
 		}
 	}
 
 	static int partition(int[] arr, int l, int h) {
 		int i = l - 1;
-		int pivot = arr[h];
-		int temp = 0;
+		int j = h + 1;
+		int pivot = arr[l];
 
-		for (int j = l; j < h; j++) {
-			if (arr[j] < pivot) {
+		while (true) {
+			do {
 				i++;
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
+			} while (arr[i] < pivot);
+			do {
+				j--;
+			} while (arr[j] > pivot);
+
+			if (i >= j)
+				return i;
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
 		}
-		temp = arr[i + 1];
-		arr[i + 1] = arr[h];
-		arr[h] = temp;
-		return i + 1;
 	}
 }
