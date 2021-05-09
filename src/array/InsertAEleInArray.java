@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Scanner;
-
 public class InsertAEleInArray {
 
 	public static void main(String[] args) {
