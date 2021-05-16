@@ -1,7 +1,5 @@
 package searching;
 
-import java.util.Scanner;
-
 public class SearchInInfiniteSizeOfArray {
 
 	public static void main(String[] args) {
@@ -23,7 +21,7 @@ public class SearchInInfiniteSizeOfArray {
 		}
 	}
 
-//	TC - O(position of element) SC - O(1)
+//	TC - log(position of element) SC - O(1)
 	static int search2(int[] arr, int k) {
 		if (arr[0] == k)
 			return 0;

@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class FrequenciesInSortedArray {
@@ -12,10 +14,24 @@ public class FrequenciesInSortedArray {
 			arr[i] = sc.nextInt();
 		}
 
-		frequency(arr, n);
+		frequency1(arr, n);
+		frequency2(arr, n);
 	}
 
-	static void frequency(int[] arr, int n) {
+// 	TC - O(n) and SC - O(n)
+	static void frequency1(int[] arr, int n) {
+		HashMap<Integer, Integer> map=new HashMap<>();
+		Arrays.stream(arr).forEach(ele->{
+			if(!map.containsKey(ele))
+				map.put(ele, 1);
+			else
+				map.put(ele, map.get(ele)+1);
+		});
+		System.out.println(map);
+	}
+	
+// 	TC - O(n) and SC - O(1)
+	static void frequency2(int[] arr, int n) {
 		int prev = arr[0];
 		int freq = 1;
 

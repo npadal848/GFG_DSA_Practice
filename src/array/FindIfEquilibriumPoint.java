@@ -1,21 +1,17 @@
 package array;
 
-import java.util.Scanner;
-
 public class FindIfEquilibriumPoint {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int[] arr = new int[n];
-		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextInt();
-		}
+		int[] arr = { 1, 3, 5, 2, 2 };
+		int n = arr.length;
 
 		System.out.println(find1(arr, n));
 		System.out.println(find2(arr, n));
+		System.out.println(find3(arr, n));
 	}
 
+//	TC - 0(n^2) and SC - 0(1)
 	static boolean find1(int[] arr, int n) {
 
 		for (int i = 0; i < n; i++) {
@@ -37,6 +33,7 @@ public class FindIfEquilibriumPoint {
 		return false;
 	}
 
+//	TC - 0(n) and SC - 0(n)
 	static boolean find2(int[] arr, int n) {
 		int[] prefSum = new int[n];
 		int[] sufSum = new int[n];
@@ -56,6 +53,25 @@ public class FindIfEquilibriumPoint {
 					return true;
 			} else if (prefSum[i - 1] == sufSum[i + 1])
 				return true;
+		}
+
+		return false;
+	}
+
+//	TC - 0(n) and SC - 0(1)
+	static boolean find3(int[] arr, int n) {
+		int sum = 0;
+		int leftSum = 0;
+
+		for (int i = 0; i < n; i++) {
+			sum += arr[i];
+		}
+
+		for (int i = 0; i < n; i++) {
+			sum -= arr[i]; // sum is now right sum for index i
+			if (leftSum == sum)
+				return true;
+			leftSum += arr[i];
 		}
 
 		return false;

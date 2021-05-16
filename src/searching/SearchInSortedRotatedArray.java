@@ -1,17 +1,16 @@
 package searching;
 
-import java.util.Scanner;
-
 public class SearchInSortedRotatedArray {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int k = sc.nextInt();
-		int[] arr = new int[n];
-		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextInt();
-		}
+
+		int[] arr = { 10, 20, 30, 40, 50, 8, 9 };
+		int n = arr.length;
+		int k = 30;
+
+//		int[] arr = { 100, 200, 300, 10, 20 };
+//		int n = arr.length;
+//		int k = 30;
 
 		System.out.println(search1(arr, n, k));
 		System.out.println(search2(arr, 0, n - 1, k));
@@ -33,12 +32,11 @@ public class SearchInSortedRotatedArray {
 		if (start > end) {
 			return -1;
 		}
-		
+
 		int mid = (start + end) / 2;
 		if (arr[mid] == k)
 			return mid;
-
-		if (arr[start] < arr[mid]) {
+		else if (arr[start] < arr[mid]) {
 			if (k >= arr[start] && k < arr[mid])
 				return search2(arr, start, mid - 1, k);
 			else
