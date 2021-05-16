@@ -64,12 +64,11 @@ public class LongestSubarrayWithEqual0And1 {
 			preffSum += arr[i];
 			if (preffSum == 0)
 				maxLength = Math.max(maxLength, i + 1);
-			if (!map.containsKey(preffSum)) {
-				map.put(preffSum, i);
-			}
-			if (map.containsKey(preffSum)) {
+			if (map.containsKey(preffSum))
 				maxLength = Math.max(maxLength, i - map.get(preffSum));
-			}
+			else
+				map.put(preffSum, i);
+
 		}
 		return maxLength;
 	}

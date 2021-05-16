@@ -1,5 +1,8 @@
 package hashing;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestCommonSpanSubarryWithSameSum {
 
 	public static void main(String[] args) {
@@ -19,6 +22,11 @@ public class LongestCommonSpanSubarryWithSameSum {
 		System.out.println(find1(arr3, arr4));
 		System.out.println(find1(arr5, arr6));
 		System.out.println(find1(arr7, arr8));
+		System.out.println();
+		System.out.println(find2(arr1, arr2));
+		System.out.println(find2(arr3, arr4));
+		System.out.println(find2(arr5, arr6));
+		System.out.println(find2(arr7, arr8));
 	}
 
 //	TC - Theta(n^2) and O(1)
@@ -41,6 +49,22 @@ public class LongestCommonSpanSubarryWithSameSum {
 //	TC - Theta(n) and O(n)
 	static int find2(int[] arr1, int[] arr2) {
 		int maxLength = 0;
+		int[] temp = new int[arr1.length];
+		Map<Integer, Integer> map = new HashMap<>();
+		int preffSum = 0;
+		for (int i = 0; i < arr1.length; i++) {
+			temp[i] = arr1[i] - arr2[i];
+		}
+
+		for (int i = 0; i < temp.length; i++) {
+			preffSum += temp[i];
+			if (preffSum == 0)
+				maxLength = Math.max(maxLength, i + 1);
+			if (map.containsKey(preffSum))
+				maxLength = Math.max(maxLength, i - map.get(preffSum));
+			else
+				map.put(preffSum, i);
+		}
 
 		return maxLength;
 	}
