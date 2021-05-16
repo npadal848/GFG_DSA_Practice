@@ -12,11 +12,15 @@ public class Find2ndLargestElement {
 			arr[i] = sc.nextInt();
 		}
 
-		System.out.println(find2ndLargestEle1(arr, n));
+		find2ndLargestEle1(arr, n);
+		find2ndLargestEle2(arr, n);
 	}
 
 //	Naive Solution with 2 times traversal of the array
-	static int find2ndLargestEle1(int[] arr, int n) {
+	static void find2ndLargestEle1(int[] arr, int n) {
+		if (n < 2)
+			System.out.println("Invalid Input");
+
 		int index1 = 0;
 		int index2 = -1;
 		for (int i = 0; i < n; i++) {
@@ -34,26 +38,30 @@ public class Find2ndLargestElement {
 				}
 			}
 		}
-
-		return index2;
+		if (index2 == -1)
+			System.out.println("Don't have 2nd Largest Element");
+		else
+			System.out.println("2nd Largest Element: " + arr[index2]);
 	}
 
 //	Efficient Solution with 1 time traversal of the array
-	static int find2ndLargestEle2(int[] arr, int n) {
-		int largest = 0;
-		int res = -1;
-		for (int i = 0; i < n; i++) {
-			if (arr[largest] < arr[i]) {
-				res = largest;
-				largest = i;
-			}
+	static void find2ndLargestEle2(int[] arr, int n) {
+		if (n < 2)
+			System.out.println("Invalid Input");
 
-			if (arr[largest] != arr[i]) {
-				if (res == -1 || arr[res] < arr[i]) {
-					res = i;
-				}
+		int first = Integer.MIN_VALUE;
+		int second = Integer.MIN_VALUE;
+		for (int i = 0; i < n; i++) {
+			if (arr[i] > first) {
+				second = first;
+				first = arr[i];
+			} else if (arr[i] != first && arr[i] > second) {
+				second = arr[i];
 			}
 		}
-		return res;
+		if (second == Integer.MIN_VALUE)
+			System.out.println("Don't have 2nd Largest Element");
+		else
+			System.out.println("2nd Largest Element: " + second);
 	}
 }

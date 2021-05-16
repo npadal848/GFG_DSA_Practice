@@ -2,7 +2,7 @@ package array;
 
 import java.util.Scanner;
 
-public class DeleteDuplicateEelFromArray {
+public class DeleteDuplicatesSortedArray {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
