@@ -12,7 +12,7 @@ public class CheckForAnagramString {
 		System.out.println(checkAnagram2(s1, s2));
 	}
 
-//	TC - O(n^2) and SC - O(1)
+//	TC - O(n log n) and SC - O(1)
 	static boolean checkAnagram1(String s1, String s2) {
 		char[] ch1 = s1.toCharArray();
 		Arrays.sort(ch1);
@@ -25,7 +25,7 @@ public class CheckForAnagramString {
 		return s1.equals(s2);
 	}
 
-//	TC - O(n) and SC - O(char)
+//	TC - O(n) and SC - O(1)
 	static boolean checkAnagram2(String s1, String s2) {
 		if (s1.length() != s2.length())
 			return false;
