@@ -13,20 +13,3 @@ public class ImplSinglyLinkedList {
 	}
 	
 }
-
-class Node {
-	int data;
-	Node next;
-
-	public Node(int data) {
-		this.data = data;
-	}
-	
-	public void print() {
-		Node current=this;
-		while(current!=null) {
-			System.out.println(current.data);
-			current=current.next;
-		}
-	}
-}
