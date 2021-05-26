@@ -5,25 +5,39 @@ public class InsertAtGivenPositionInSinglyLinkedList {
 	public static void main(String[] args) {
 		Node head = new Node(10);
 		head.next = new Node(20);
-		System.out.println(head.size());
+		
+		head=insertAtPosition(head, 15, 2);
+		head.print();
+		System.out.println();
+		head=insertAtPosition(head, 30, 1);
+		head.print();
+		System.out.println();
+		head=insertAtPosition(head, 40, 5);
+		head.print();
+		System.out.println();
+		head=insertAtPosition(head, 25, 5);
+		head.print();
+//		System.out.println(head.size());
 	}
 
 	static Node insertAtPosition(Node head, int data, int pos) {
-		int count = 0;
 		if (head == null)
 			return head;
-		if (pos > head.size())
+		if (pos > head.size()+1)
 			return head;
-
+		Node temp = new Node(data);
+		if(pos==1) {
+			temp.next=head;
+			return temp;
+		}
+		int count = 1;
 		Node curr = head;
-		Node prev = head;
-		while (count != pos - 1) {
-			prev = curr;
+		while (curr != null && count <= pos - 2) {
 			curr = curr.next;
 			count++;
 		}
-		Node temp = new Node(data);
-		temp.next = curr;
-		return curr;
+		temp.next = curr.next;
+		curr.next = temp;
+		return head;
 	}
 }
