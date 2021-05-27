@@ -1,4 +1,4 @@
-package linkedList;
+package linkedList.singly;
 
 import java.util.List;
 import java.util.stream.Collectors;
