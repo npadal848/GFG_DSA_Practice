@@ -21,7 +21,7 @@ public class Node {
 			if (curr != null)
 				System.out.print("Next: " + curr.data);
 			else
-				System.out.print("Prev: " + curr);
+				System.out.print("Next: " + curr);
 			System.out.println();
 		}
 	}
@@ -34,5 +34,10 @@ public class Node {
 			current = current.next;
 		}
 		return size;
+	}
+
+	@Override
+	public String toString() {
+		return "Node [data=" + data + ", next=" + next + ", prev=" + prev + "]";
 	}
 }

@@ -1,6 +1,6 @@
 package linkedList.doubly;
 
-public class ReverseDulblyLinkedList {
+public class DeleteHeadOfDublyLinkedList {
 
 	public static void main(String[] args) {
 		Node head = new Node(10);
@@ -12,22 +12,21 @@ public class ReverseDulblyLinkedList {
 		temp2.prev = temp1;
 		head.print();
 		System.out.println();
-		head = reverse(head);
+		head = delete(head);
 		head.print();
-
+		System.out.println();
+		head = delete(head);
+		head.print();
+		System.out.println();
+		head = delete(head);
+		System.out.println(head);
 	}
 
-	static Node reverse(Node head) {
+	static Node delete(Node head) {
 		if (head == null || head.next == null)
-			return head;
-		Node curr = head;
-		Node prev = null;
-		while (curr != null) {
-			prev = curr.prev;
-			curr.prev = curr.next;
-			curr.next = prev;
-			curr = curr.prev;
-		}
-		return prev.prev;
+			return null;
+		head = head.next;
+		head.prev = null;
+		return head;
 	}
 }
