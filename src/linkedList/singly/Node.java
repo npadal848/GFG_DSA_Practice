@@ -11,9 +11,10 @@ public class Node {
 	public void print() {
 		Node current = this;
 		while (current != null) {
-			System.out.println(current.data);
+			System.out.print(current.data + " ");
 			current = current.next;
 		}
+		System.out.println();
 	}
 
 	public int size() {
@@ -24,5 +25,16 @@ public class Node {
 			current = current.next;
 		}
 		return size;
+	}
+
+	public void printNode() {
+		Node head = this;
+		System.out.print(head.data + " ");
+		Node curr = head.next;
+		while (curr != head) {
+			System.out.print(curr.data + " ");
+			curr = curr.next;
+		}
+		System.out.println();
 	}
 }
