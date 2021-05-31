@@ -1,4 +1,4 @@
-package linkedList.singly;
+package linkedList.doubly;
 
 public class PrintCircularLL {
 
