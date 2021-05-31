@@ -12,6 +12,10 @@ public class SortedInsertInASinglyLinkedList {
 		head.print();
 		head = sortedInsert(head, 5);
 		head.print();
+		head = sortedInsert(head, 30);
+		head.print();
+		head = sortedInsert(head, 8);
+		head.print();
 	}
 
 	static Node sortedInsert(Node head, int data) {
@@ -27,7 +31,7 @@ public class SortedInsertInASinglyLinkedList {
 		while (curr.next != null && data > curr.next.data) {
 			curr = curr.next;
 		}
-		temp.next = curr.next;
+		temp.next=curr.next;
 		curr.next = temp;
 		return head;
 	}
