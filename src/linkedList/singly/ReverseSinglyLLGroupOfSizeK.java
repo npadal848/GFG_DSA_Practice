@@ -1,30 +1,27 @@
 package linkedList.singly;
 
+import java.util.Scanner;
+
 public class ReverseSinglyLLGroupOfSizeK {
 
 	public static void main(String[] args) {
-		Node head = new Node(1);
-		Node temp1 = new Node(2);
-		Node temp2 = new Node(3);
-		Node temp3 = new Node(4);
-		Node temp4 = new Node(5);
-		Node temp5 = new Node(6);
-		Node temp6 = new Node(7);
-		Node temp7 = new Node(8);
-		head.next = temp1;
-		temp1.next = temp2;
-		temp2.next = temp3;
-		temp3.next = temp4;
-		temp4.next = temp5;
-		temp5.next = temp6;
-		temp6.next = temp7;
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		Node head = new Node(-1);
+		Node curr = head;
+		while (n-- > 0) {
+			curr.next = new Node(sc.nextInt());
+			curr = curr.next;
+		}
+		int k = sc.nextInt();
+		head = head.next;
 		head.print();
 		System.out.println();
-//		head = reverseByGroup1(head, 3);
-//		head.print();
-//		System.out.println();
-		head = reverseByGroup2(head, 3);
+		head = reverseByGroup1(head, k);
 		head.print();
+//		System.out.println();
+//		head = reverseByGroup2(head, 3);
+//		head.print();
 	}
 
 //	Iterative solution
@@ -32,12 +29,20 @@ public class ReverseSinglyLLGroupOfSizeK {
 		Node curr = head;
 		Node prevFirst = null;
 		boolean isFirstPass = true;
+		int noOfNodes = 0;
+
+		while (curr != null) {
+			noOfNodes++;
+			curr = curr.next;
+		}
+		curr = head;
+		int noOfPossibleGroups = noOfNodes / k;
+		int groupCount = 0;
 		while (curr != null) {
 			Node prev = null;
 			Node first = curr;
 			int count = 0;
-
-			while (curr != null && count < k) {
+			while (groupCount < noOfPossibleGroups && curr != null && count < k) {
 				Node next = curr.next;
 				curr.next = prev;
 				prev = curr;
@@ -47,9 +52,13 @@ public class ReverseSinglyLLGroupOfSizeK {
 			if (isFirstPass) {
 				head = prev;
 				isFirstPass = false;
+			} else if (groupCount >= noOfPossibleGroups) {
+				prevFirst.next = curr;
+				break;
 			} else
 				prevFirst.next = prev;
 			prevFirst = first;
+			groupCount++;
 		}
 		return head;
 	}
