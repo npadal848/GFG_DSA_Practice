@@ -3,9 +3,15 @@ package linkedList.singly;
 public class Node {
 	int data;
 	Node next;
+	Node random;
 
 	public Node(int data) {
 		this.data = data;
+	}
+
+	public Node(int data, Node random) {
+		this.data = data;
+		this.random = random;
 	}
 
 	public void print() {
