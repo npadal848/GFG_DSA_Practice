@@ -17,7 +17,7 @@ public class MergeSort3 {
 		sc.close();
 	}
 
-	static void mergeSort(int[] arr, int low, int high) {
+	public static void mergeSort(int[] arr, int low, int high) {
 		if (low < high) {
 			int mid = low + (high - low) / 2;
 			mergeSort(arr, low, mid);
