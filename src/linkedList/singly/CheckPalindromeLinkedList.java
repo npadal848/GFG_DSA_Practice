@@ -1,28 +1,19 @@
 package linkedList.singly;
 
+import java.util.Scanner;
+
 public class CheckPalindromeLinkedList {
 
 	public static void main(String[] args) {
-		Node head = new Node(1);
-		head.next = new Node(2);
-		head.print();
-		System.out.println(isPalindrome(head));
-		System.out.println();
-		head.next.next = new Node(2);
-		head.next.next.next = new Node(1);
-		head.print();
-		System.out.println(isPalindrome(head));
-		System.out.println();
-		head.next = null;
-		head.print();
-		System.out.println(isPalindrome(head));
-		System.out.println();
-
-		head.next = new Node(2);
-		head.next.next = new Node(3);
-		head.next.next.next = new Node(2);
-		head.next.next.next.next = new Node(1);
-		head.print();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		Node head = new Node(-1);
+		Node curr = head;
+		while (n-- > 0) {
+			curr.next = new Node(sc.nextInt());
+			curr = curr.next;
+		}
+		head = head.next;
 		System.out.println(isPalindrome(head));
 	}
 
