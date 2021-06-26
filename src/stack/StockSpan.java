@@ -30,7 +30,7 @@ public class StockSpan {
 		System.out.println();
 	}
 
-//	Time: O(n) and space: O(n)
+//	Time: Theta(n) and space: O(n)
 	static void getStockSpan2(int[] arr) {
 		Stack<Integer> s = new Stack<>();
 		s.push(0);
