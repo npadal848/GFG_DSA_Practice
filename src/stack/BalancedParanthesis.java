@@ -17,9 +17,10 @@ public class BalancedParanthesis {
 //		Stack<Character> stack = new Stack<>(); --> Use in Multi threaded application
 		Deque<Character> stack = new ArrayDeque<>(); // Use for single thread application
 		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
-				stack.push(s.charAt(i));
-			else if (stack.isEmpty() || !isMatching(stack.pop(), s.charAt(i)))
+			char currBracket = s.charAt(i);
+			if (currBracket == '(' || currBracket == '[' || currBracket == '{')
+				stack.push(currBracket);
+			else if (stack.isEmpty() || !isMatching(stack.pop(), currBracket))
 				return false;
 		}
 		if (!stack.isEmpty())
@@ -27,8 +28,8 @@ public class BalancedParanthesis {
 		return true;
 	}
 
-	static boolean isMatching(char stackChar, char strChar) {
-		return ((stackChar == '(' && strChar == ')') || (stackChar == '[' && strChar == ']')
-				|| (stackChar == '{' && strChar == '}'));
+	static boolean isMatching(char recentOpenBracket, char currBracket) {
+		return ((recentOpenBracket == '(' && currBracket == ')') || (recentOpenBracket == '[' && currBracket == ']')
+				|| (recentOpenBracket == '{' && currBracket == '}'));
 	}
 }
