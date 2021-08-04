@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class LeveOrderTraversal {
@@ -24,9 +25,10 @@ public class LeveOrderTraversal {
 		for (int i = 0; i < height; i++) {
 			printNode(root, i);
 		}
+		List.of(1);
 	}
 
-//	Time: O(n) and Space: O(1)
+//	Time: O(n) and Space: Theta(n)
 	public static void printLevelOrder2(Node root) {
 		Queue<Node> q = new LinkedList<>();
 		q.add(root);
