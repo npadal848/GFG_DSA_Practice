@@ -23,7 +23,7 @@ public class LevelOrderTraversalLineByLine {
 		printLineByLine2(root);
 	}
 
-//	Time: O(n) and Space: Theta(n)
+//	Time: O(n) and Space: O(width of binary tree)
 	public static void printLineByLine1(Node root) {
 		Queue<Node> q = new LinkedList<>();
 		q.add(root);
