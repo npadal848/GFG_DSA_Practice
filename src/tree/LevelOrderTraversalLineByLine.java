@@ -1,6 +1,8 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class LevelOrderTraversalLineByLine {
@@ -20,7 +22,11 @@ public class LevelOrderTraversalLineByLine {
 
 		printLineByLine1(root);
 		System.out.println();
+		System.out.println("============");
 		printLineByLine2(root);
+		System.out.println();
+		System.out.println("============");
+		printLineByLine3(root);
 	}
 
 //	Time: O(n) and Space: O(width of binary tree)
@@ -61,6 +67,29 @@ public class LevelOrderTraversalLineByLine {
 					q.offer(currNode.right);
 			}
 			System.out.println();
+		}
+	}
+	
+//	Time: O(n) and Space: O(1)
+	public static void printLineByLine3(Node root) {
+		Node temp = root;
+		while (temp != null) {
+			Node levelHead = new Node(0);
+			Node node = levelHead;
+			while (temp != null) {
+				System.out.print(temp.data+" ");
+				if (temp.left != null) {
+					node.next = temp.left;
+					node = node.next;
+				}
+				if (temp.right != null) {
+					node.next = temp.right;
+					node = node.next;
+				}
+				temp = temp.next;
+			}
+			System.out.println();
+			temp = levelHead.next;
 		}
 	}
 }

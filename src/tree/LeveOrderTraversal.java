@@ -17,6 +17,10 @@ public class LeveOrderTraversal {
 		rightSubTree2.right = new Node(12);
 
 		printLevelOrder1(root);
+		System.out.println();
+		printLevelOrder2(root);
+		System.out.println();
+		printLevelOrder3(root);
 	}
 
 //	Time: O(h*n) and Space: O(n)
@@ -25,7 +29,6 @@ public class LeveOrderTraversal {
 		for (int i = 0; i < height; i++) {
 			printNode(root, i);
 		}
-		List.of(1);
 	}
 
 //	Time: O(n) and Space: Theta(n)
@@ -34,11 +37,33 @@ public class LeveOrderTraversal {
 		q.add(root);
 		while (!q.isEmpty()) {
 			Node curr = q.poll();
-			System.out.print(curr.data);
+			System.out.print(curr.data + " ");
 			if (curr.left != null)
 				q.add(curr.left);
 			if (curr.right != null)
 				q.add(curr.right);
+		}
+	}
+
+//	Time: O(n) and Space: O(1)
+	public static void printLevelOrder3(Node root) {
+		Node temp = root;
+		while (temp != null) {
+			Node levelHead = new Node(0);
+			Node node = levelHead;
+			while (temp != null) {
+				System.out.print(temp.data + " ");
+				if (temp.left != null) {
+					node.next = temp.left;
+					node = node.next;
+				}
+				if (temp.right != null) {
+					node.next = temp.right;
+					node = node.next;
+				}
+				temp = temp.next;
+			}
+			temp = levelHead.next;
 		}
 	}
 
