@@ -9,6 +9,7 @@ public class PreviousGraterEelement {
 		int[] arr1 = { 15, 10, 18, 12, 4, 6, 2, 8 }; // Output: -1, 15, -1, 18, 12, 12, 6, 12
 		int[] arr2 = { 8, 10, 12 };
 		int[] arr3 = { 12, 10, 8 };
+		int[] arr4 = { 5, 15, 10, 8, 6, 12, 9, 18 };
 
 		greaterElement1(arr1);
 		greaterElement1(arr2);
@@ -17,6 +18,7 @@ public class PreviousGraterEelement {
 		greaterElement2(arr1);
 		greaterElement2(arr2);
 		greaterElement2(arr3);
+		greaterElement2(arr4);
 	}
 
 //	Time: O(n^2) and Space: O(1)

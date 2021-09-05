@@ -22,7 +22,7 @@ public class QuickSortUsingLomutoPartition {
 	static void sort(int[] arr, int l, int h) {
 		if (l < h) {
 			int p = partition(arr, l, h);
-			sort(arr, l, p-1);
+			sort(arr, l, p - 1);
 			sort(arr, p + 1, h);
 		}
 	}
@@ -44,5 +44,11 @@ public class QuickSortUsingLomutoPartition {
 		arr[i + 1] = arr[h];
 		arr[h] = temp;
 		return i + 1;
+	}
+
+	private static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 	}
 }
