@@ -10,6 +10,8 @@ public class Factorial {
 
 //		System.out.println(findFactorial(n));
 		System.out.println(findFactorialRecursive(n));
+		
+		sc.close();
 	}
 
 	static long findFactorial(int n) {

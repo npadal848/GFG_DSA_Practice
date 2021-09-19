@@ -6,5 +6,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/nagesh/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.4.32.Final/99a5e10bf455337014c190e141ec631e9ff71663/hibernate-core-5.4.32.Final.jar" sourcepath="/Users/nagesh/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.4.32.Final/c4476a37353fd886a2584e0de360a1c0cfda4b97/hibernate-core-5.4.32.Final-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
