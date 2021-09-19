@@ -62,7 +62,7 @@ public class InsertInBST {
 		return root;
 	}
 
-	private static void printBST(Node root) {
+	public static void printBST(Node root) {
 		Queue<Node> q = new LinkedList<>();
 		q.add(root);
 		while (!q.isEmpty()) {
