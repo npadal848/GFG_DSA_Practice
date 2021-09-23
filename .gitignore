@@ -3,6 +3,7 @@ bin/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
+.DS_Store
 .apt_generated
 .classpath
 .factorypath
