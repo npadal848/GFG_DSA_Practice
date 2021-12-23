@@ -17,20 +17,11 @@ public class MajorityElementOfAnArray {
 		System.out.println(find2(arr, n));
 		System.out.println(find4(arr, n));
 		System.out.println(find3(arr, n));
-	}
-
-//	TC O(n^2) and SC - O(1)
-	static int find1(int[] arr, int n) {
-		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextInt();
-		}
-
-		System.out.println(find(arr, n));
 		System.out.println(findMajorityEel(arr, n));
 	}
 
 //	Method-1 TC - O(n^2) SC - O(1)
-	static int find(int[] arr, int n) {
+	static int find1(int[] arr, int n) {
 		int times = n / 2;
 		int i;
 		for (i = 0; i < n; i++) {
@@ -120,6 +111,8 @@ public class MajorityElementOfAnArray {
 		if (count > (n / 2))
 			return true;
 		return false;
+	}
+	
 //	Method-2 TC - O(n) SC - O(1)
 	static int findMajorityEel(int[] arr, int n) {
 		int times = n / 2;
